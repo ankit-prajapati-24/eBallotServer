@@ -13,7 +13,7 @@ const { ConnectCloadinary } = require("./config/Coudinary");
 const fileupload = require("express-fileupload");
 const dotenv = require("dotenv");
 dotenv.config(); // Load environment variables from .env file
-const PORT = process.env.PORT || 4000;
+// const PORT = process.env.PORT || 4000;
 
 // connect database
 dbconnect();
@@ -39,7 +39,7 @@ app.use(
 
 ConnectCloadinary();
 
-app.use("/api/v1/auth", userRoutes); // Add a leading slash to the routes
+// app.use("/api/v1/auth", userRoutes); // Add a leading slash to the routes
 // app.use("/api/v1/Services", ElectionsRoute);
 // app.use("/api/v1/profile", profileRoutes);
 // app.use("/api/v1/Survey", SurveyRoute);
@@ -53,6 +53,6 @@ app.get("/", (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}`);
+// });
