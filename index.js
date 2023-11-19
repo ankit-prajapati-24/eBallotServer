@@ -6,23 +6,23 @@ const app = express();
 // const ElectionsRoute = require("./routes/ElectionsRoute");
 // const SurveyRoute = require("./routes/SurveyRoute");
 const dbconnect = require("./config/database");
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
+// const cookieParser = require("cookie-parser");
+// const cors = require("cors");
 
 // const { ConnectCloadinary } = require("./config/Coudinary");
 const fileupload = require("express-fileupload");
 const dotenv = require("dotenv");
-dotenv.config(); // Load environment variables from .env file
+// dotenv.config(); // Load environment variables from .env file
 // const PORT = process.env.PORT || 4000;
 
 // connect database
-// dbconnect();
+dbconnect();
 
 // middleware
-const bodyparser = require("body-parser");
+// const bodyparser = require("body-parser");
 
-app.use(cookieParser());
-app.use(bodyparser.json());
+// app.use(cookieParser());
+// app.use(bodyparser.json());
 app.use(
   cors({
     origin: "https://e-ballot-server.vercel.app/",
