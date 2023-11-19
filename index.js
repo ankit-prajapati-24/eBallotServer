@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
 
-const userRoutes = require("./routes/User");
-const profileRoutes = require("./routes/Profile");
-const ElectionsRoute = require("./routes/ElectionsRoute");
-const SurveyRoute = require("./routes/SurveyRoute");
+// const userRoutes = require("./routes/User");
+// const profileRoutes = require("./routes/Profile");
+// const ElectionsRoute = require("./routes/ElectionsRoute");
+// const SurveyRoute = require("./routes/SurveyRoute");
 const dbconnect = require("./config/database");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(bodyparser.json());
 app.use(
   cors({
-    origin: "*",
+    origin: "https://e-ballot-server.vercel.app/",
     credentials: true
   })
 );
