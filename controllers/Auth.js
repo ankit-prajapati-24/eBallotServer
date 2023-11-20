@@ -29,7 +29,7 @@ exports.sendOTP = async (req, res) => {
         //         break; // Exit the loop if OTP is unique
         //     }
         // } while (true);
-        //   let email = mail;
+          let email = mail;
         const otpPayload = { email, otp };
 
         // Create an entry for OTP
