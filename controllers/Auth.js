@@ -181,7 +181,7 @@ exports.login = async (req,res) =>{
             return res.status(201).json({
                 success:false,
                 status: 400,
-                message: "User is not ragistered"
+                message: "User is not registered"
             })
         }
         // gernarate jwt after password matching
@@ -196,7 +196,7 @@ exports.login = async (req,res) =>{
             res.status(200).json({
                 success:true,
                 userDetails : user,
-                message: "user Succefully authenticated"
+                message: "user Succesfully authenticated"
             })
         }
         
