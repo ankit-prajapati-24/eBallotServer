@@ -29,7 +29,7 @@ exports.sendOTP = async (req, res) => {
         //         break; // Exit the loop if OTP is unique
         //     }
         // } while (true);
-          let email = mail;
+        //   let email = mail;
         const otpPayload = { email, otp };
 
         // Create an entry for OTP
@@ -176,12 +176,12 @@ exports.login = async (req,res) =>{
         console.log("this is my error is start form this")
         // check user already exists or not
         const user = await User.findOne({ email: email});
-        // console.log("user is here:",user)
+        console.log("user is here:",user)
         if(!user){
             return res.status(201).json({
                 success:false,
                 status: 400,
-                message: "User is not registered"
+                message: "User is not ragistered"
             })
         }
         // gernarate jwt after password matching
@@ -196,7 +196,7 @@ exports.login = async (req,res) =>{
             res.status(200).json({
                 success:true,
                 userDetails : user,
-                message: "user Succesfully authenticated"
+                message: "user Succefully authenticated"
             })
         }
         
@@ -285,4 +285,3 @@ exports.login = async (req,res) =>{
 //         })
 //     }
 // }
-
