@@ -29,7 +29,7 @@ exports.sendOTP = async (req, res) => {
         //         break; // Exit the loop if OTP is unique
         //     }
         // } while (true);
-          let email = mail;
+          // let email = mail;
         const otpPayload = { email, otp };
 
         // Create an entry for OTP
@@ -74,14 +74,14 @@ exports.signup = async (req,res) =>{
         // console.log("step3");
 
         // check user already exists or not
-        const checkuser = await User.find({ email: email});
-        if(checkuser){
-            return res.status(201).json({
-                success:true,
-                status: 201,
-                message: "User already exists"
-            })
-        }
+        // const checkuser = await User.find({ email: email});
+        // if(checkuser){
+        //     return res.status(201).json({
+        //         success:true,
+        //         status: 201,
+        //         message: "User already exists"
+        //     })
+        // }
         // find most recent otp stored for the user
         const recentOtp = await OTP.find({email}).sort({createdAt: -1}).limit(1);
         // const recentOtp = await OTP.find({});
