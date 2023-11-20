@@ -214,74 +214,74 @@ exports.login = async (req,res) =>{
 
 // change password
 
-exports.changePassword = async(req,res) =>{
-    try{
-        // fetch data form request body
-        const {oldPassword,newPassword,confirmPassword} = req.body;
-        // validate data
-        if(!oldPassword ||!newPassword ||!confirmPassword){
-            return res.status(400).json({
-                success:false,
-                status: 400,
-                message: "Please fill all the fields"
-            });
-        }
-        // check user already exists or not
-        const useremail = req.user.email;
-        const user = await User.find({email:useremail});
-        if(!user){
-            return res.status(400).json({
-                success:false,
-                status: 400,
-                message: "User is not ragistered"
-            })
-        }
-        // gernarate jwt after password matching
-        if( await bcrypt.compare(user.password,oldPassword)){
-        const payload = {
-            email: user.email,
-            id: user._id,
-            accounttype : user.accounttype,
-        }
-        const token = await jwt.sign(payload,process.env.JWT_SECRET);
+// exports.changePassword = async(req,res) =>{
+//     try{
+//         // fetch data form request body
+//         const {oldPassword,newPassword,confirmPassword} = req.body;
+//         // validate data
+//         if(!oldPassword ||!newPassword ||!confirmPassword){
+//             return res.status(400).json({
+//                 success:false,
+//                 status: 400,
+//                 message: "Please fill all the fields"
+//             });
+//         }
+//         // check user already exists or not
+//         const useremail = req.user.email;
+//         const user = await User.find({email:useremail});
+//         if(!user){
+//             return res.status(400).json({
+//                 success:false,
+//                 status: 400,
+//                 message: "User is not ragistered"
+//             })
+//         }
+//         // gernarate jwt after password matching
+//         if( await bcrypt.compare(user.password,oldPassword)){
+//         const payload = {
+//             email: user.email,
+//             id: user._id,
+//             accounttype : user.accounttype,
+//         }
+//         const token = await jwt.sign(payload,process.env.JWT_SECRET);
 
-        // get old password , new password , confirm password
-        // valdation 
+//         // get old password , new password , confirm password
+//         // valdation 
 
-        // update password in database
-        await User.findByIdAndUpdate({email:user.email},{
-            password:newPassword
-        })
-        // send mail - password update
-        mailSender(email,"chang password successfully updated","chang password successfully updated");
-        // return response
-          res.status(200).json({
-            success:true,
-            message: "Password updated successfully",
-          });
-    }
-    }
-    catch(err){
-        console.log(err);
-        res.status(500).json({
-            success:false,
-            status: 500,
-            message: "error in changePassword please try again later"
-        })
-    }
-}
+//         // update password in database
+//         await User.findByIdAndUpdate({email:user.email},{
+//             password:newPassword
+//         })
+//         // send mail - password update
+//         mailSender(email,"chang password successfully updated","chang password successfully updated");
+//         // return response
+//           res.status(200).json({
+//             success:true,
+//             message: "Password updated successfully",
+//           });
+//     }
+//     }
+//     catch(err){
+//         console.log(err);
+//         res.status(500).json({
+//             success:false,
+//             status: 500,
+//             message: "error in changePassword please try again later"
+//         })
+//     }
+// }
 
-exports.userinformation = async(req,res) => {
-    try{
-        const {email} = req.body;
-        const userDetails = await User.find({email:email});
-        res.status(200).json({
-            data:userDetails
-        })
-    }
-    catch(err){
-        res.status(404).json({
-            msg:"error while get userinfo"
-        })
-    }
-}
+// exports.userinformation = async(req,res) => {
+//     try{
+//         const {email} = req.body;
+//         const userDetails = await User.find({email:email});
+//         res.status(200).json({
+//             data:userDetails
+//         })
+//     }
+//     catch(err){
+//         res.status(404).json({
+//             msg:"error while get userinfo"
+//         })
+//     }
+// }

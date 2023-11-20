@@ -6,16 +6,9 @@ const router = express.Router()
 const {
   login,
   signup,
-  sendOTP,
-  changePassword,
-  userinformation,
+  sendOTP
 } = require("../controllers/Auth")
-const {
-  resetPasswordToken,
-  resetPassword,
-} = require("../controllers/ResetPass")
 
-const { auth } = require("../middleware/auth")
 
 // Routes for Login, Signup, and Authentication
 
@@ -32,26 +25,15 @@ router.post("/signup", signup)
 // Route for sending OTP to the user's email
 router.post("/sendotp", sendOTP)
 
-router.get("/userinfo", userinformation);
-
-router.post("/test",(req,res)=>{
-  res.json({
-    success: true,
-    message:" test is successful"
-  });
-})
-// Route for Changing the password
-router.post("/changepassword", auth, changePassword)
-
 // ********************************************************************************************************
 //                                      Reset Password
 // ********************************************************************************************************
 
-// Route for generating a reset password token
-router.post("/reset-password-token", resetPasswordToken)
+// // Route for generating a reset password token
+// router.post("/reset-password-token", resetPasswordToken)
 
-// Route for resetting user's password after verification
-router.post("/reset-password", resetPassword)
+// // Route for resetting user's password after verification
+// router.post("/reset-password", resetPassword)
 
 // Export the router for use in the main application
 module.exports = router
