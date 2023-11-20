@@ -175,15 +175,15 @@ exports.login = async (req,res) =>{
         }
         console.log("this is my error is start form this")
         // check user already exists or not
-        const user = await User.findOne({ email: email});
-        console.log("user is here:",user)
-        if(!user){
-            return res.status(201).json({
-                success:false,
-                status: 400,
-                message: "User is not registered"
-            })
-        }
+        // const user = await User.findOne({ email: email});
+        // console.log("user is here:",user)
+        // if(!user){
+        //     return res.status(201).json({
+        //         success:false,
+        //         status: 400,
+        //         message: "User is not registered"
+        //     })
+        // }
         // gernarate jwt after password matching
         console.log("passweod is here",user.password);
         if(password != user.password){
