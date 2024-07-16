@@ -91,6 +91,9 @@ exports.SendMail = async(req, res) =>{
         const {fullName,email,message} = req.body;
         const result = await mailSender(email,"Thank You for Your Feedback" ,contactUsEmail(fullName));
          console.log(result);
+        const selfmsg = await mailSender("ankitprajapat4565@gmail.com","Hello Ankit",message);
+         console.log(selfmsg);
+       
         return res.status(200).json({
             success: true,
             message:"FeedBack send successfully "
