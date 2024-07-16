@@ -58,21 +58,20 @@ exports.contactUsEmail = (
             <p>
                 Dear ${fullName},
             </p>
-            <p>
-                I hope this message finds you well. Your feedback on the recent e-ballot is greatly appreciated. Your insights are invaluable and play a crucial role in shaping our initiatives.
+           <p>
+           Thank you for reaching out to me via my portfolio website. I appreciate your interest in my work and the time you took to connect with me.
+
+           <br>
+           I have received your message and will get back to you as soon as possible. In the meantime, feel free to explore more of my projects and services on my website.
+          <br>
+            If your inquiry is urgent, please do not hesitate to contact me directly at [ankitprajpat4565@gmail.com].
             </p>
-            <p>
-                Thank you for being an active and engaged member of our community. We look forward to your continued involvement in future endeavors.
+             <p>
+             Best regards,
             </p>
-            <p>
-                If you have any further thoughts or suggestions, please feel free to reach out. Your input is highly valued, and we are always eager to hear from you.
-            </p>
-            <p>
-                Once again, thank you for your time and dedication.
-            </p>
-            <p>Best regards,<br>Ankit Prajapati<br></p>
-            <p>
-                <a href="#" class="button">Back to Website</a>
+             <p>
+
+            Ankit prajapat
             </p>
         </div>
     </body>
